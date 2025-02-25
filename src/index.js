@@ -14,6 +14,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
          <Route path="/" element={<Home />} />
+         {/* <Route path="/details/:id" element={<Details />} /> */}
          <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

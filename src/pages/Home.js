@@ -1,7 +1,7 @@
 import '../styles/Product.css'
 import Product from '../components/Product';
 
-const Products = () => {
+const Home = () => {
   return (
     <>
       <div className="prods container-fluid">
@@ -37,12 +37,10 @@ const Products = () => {
         </div>
       </div>
       <div className="row g-2">
-        <div className="col-md-3 col-sm-6">
-          <Product />
-        </div>
+        {<Product />}
       </div>
     </>    
     )
 }
 
-export default Products;
+export default Home;
