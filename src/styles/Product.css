@@ -1,0 +1,17 @@
+.prods {
+    background-color: #1c5674;
+    min-height: 40rem;
+    color: #fff;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.presentation {
+    align-items: center;
+}
+
+.prods img {
+    border: 0.7rem ridge #50feff;
+    border-radius: 5%;
+    max-height: 30rem;
+}
