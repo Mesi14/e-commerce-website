@@ -23,8 +23,10 @@ const Home = () => {
           <div className="col-md-3">
             <select className="form-select">
               <option value="">All</option>
-              <option value="Hoddies">Hoddies</option>
-              <option value="Jewelry">Jewelry</option>
+              <option value="electronics">Electronics</option>
+              <option value="jewelery">Jewelry</option>
+              <option value="men's clothing">Men's clothing</option>
+              <option value="women's clothing">Women's clothing</option>
             </select>
           </div>
           <div className="col-md-3">

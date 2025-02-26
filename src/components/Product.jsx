@@ -29,7 +29,7 @@ const Product = () => {
           <div className="col-lg-4">
             <div className="card m-2">
               <div className="favourite d-flex">
-                <Link to="/details/1" className="btn btn-outline-success">Details</Link>
+                <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
                 <i className="bi bi-heart"></i>
               </div>
               <img src={image} className="card-img-top" alt={image} />
