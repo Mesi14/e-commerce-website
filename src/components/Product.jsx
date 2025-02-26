@@ -27,17 +27,26 @@ const Product = () => {
        return (
         <Fragment key={id}>
           <div className="col-lg-4">
-            <div className="card">
-              <i className="bi bi-heart"></i>
+            <div className="card m-2">
+              <div className="favourite d-flex">
+                <Link to="/details/1" className="btn btn-outline-success">Details</Link>
+                <i className="bi bi-heart"></i>
+              </div>
               <img src={image} className="card-img-top" alt={image} />
               <div className="card-body">
-                <h5 className="card-title">{title}</h5>
-                <p className="card-text">{description}</p>
-                <p className="card-text">{category}</p>
-                <p className="card-text">{price}</p>
-                <p className="card-text">{rating.rate}</p> 
-                <Link to="/details/1" className="btn btn-primary">Details</Link>
-                <Link to="/cart" className="btn btn-primary">Add to cart</Link>
+                <span className="category-section mb-4 d-flex">
+                  <button type="button" className="btn btn-dark">{category}</button>
+                  <button type="button" className="btn btn-warning">
+                    Ratings: <span className="badge text-bg-secondary">{rating.rate}</span>
+                  </button>
+                </span>
+                <h5 className="card-title mt-5">{(title.length < 50) ? title : (title.substring(0, 50) + "...")}</h5>
+                <p className="card-text mt-3">{(description.length < 100) ? description : (description.substring(0, 100) + "...")}</p>
+                <hr/>
+                <span className="addToCart d-flex">
+                  <p className="card-text pt-3">Price: <strong>${price}</strong></p>            
+                  <Link to="/cart" className="btn btn-danger"><strong><i className="bi bi-cart-plus"></i> Add to cart</strong></Link>
+                </span>     
               </div>
             </div>
           </div>
