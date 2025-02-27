@@ -1,0 +1,35 @@
+.cardDetails {
+  width: 90%;
+  margin: 2rem auto;
+  padding: 3rem;
+  height: 30rem;
+}
+
+.cardDetails img {
+  height: 60%;
+}
+
+.ratings {
+  justify-content: space-between;
+}
+
+.addCartBack button, .addCartBack a {
+  width: 100%;
+}
+
+.prod-price {
+  font-size: 1.5rem;
+}
+
+.prodDetails {
+  background-color: #1c5674;
+  padding: 5rem;
+  min-height: 30rem;
+  color: #fff;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.prodDetails h1 {
+  font-size: 3rem;
+}
