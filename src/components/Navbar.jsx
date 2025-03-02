@@ -1,6 +1,11 @@
 import { Link } from "react-router";
+import { useContext } from 'react';
+import { CartContext } from '../context/cart';
 
 const Navbar = () => {
+  const { cartItems } = useContext(CartContext);
+  const itemsInCart = cartItems.map(item => item.quantity);
+  
   return (
     <nav className="navbar navbar-expand-md bg-white border-bottom box-shadow">
       <div className="container-fluid">
@@ -25,7 +30,8 @@ const Navbar = () => {
               </Link>
               <ul className="dropdown-menu">
                 <li><Link className="dropdown-item" to="/">Products</Link></li>
-                <li><Link className="dropdown-item" href="/profile">Profile Page</Link></li>
+                <li><Link className="dropdown-item" to="/profile">Profile Page</Link></li>
+                <li><Link className="dropdown-item" to="/cart">Cart<span className="badge text-bg-primary">{itemsInCart.reduce((acc, val) => acc+val, 0)}</span></Link></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
               </ul>

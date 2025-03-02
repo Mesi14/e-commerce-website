@@ -1,10 +1,12 @@
 import '../styles/Product.css'
 import { Link } from 'react-router';
-import { useEffect, useState, Fragment } from 'react';
+import { useEffect, useState, Fragment, useContext } from 'react';
 import axios from 'axios';
+import { CartContext } from '../context/cart';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
+  const { cartItems, addItemToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetchData();
@@ -45,7 +47,7 @@ const Product = () => {
                 <hr/>
                 <span className="addToCart d-flex">
                   <p className="card-text pt-3"><i className="bi bi-currency-dollar">Price:</i> <strong>${price}</strong></p>            
-                  <Link to="/cart" className="btn btn-danger"><strong><i className="bi bi-cart-plus"></i> Add to cart</strong></Link>
+                  <Link to="/cart" className="btn btn-danger" onClick={() => addItemToCart({id, title, description, image, category, price})}><strong><i className="bi bi-cart-plus"></i> Add to cart</strong></Link>
                 </span>     
               </div>
             </div>
