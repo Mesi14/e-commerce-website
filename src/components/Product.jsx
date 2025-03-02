@@ -44,7 +44,7 @@ const Product = () => {
                 <p className="card-text mt-3">{(description.length < 100) ? description : (description.substring(0, 100) + "...")}</p>
                 <hr/>
                 <span className="addToCart d-flex">
-                  <p className="card-text pt-3">Price: <strong>${price}</strong></p>            
+                  <p className="card-text pt-3"><i className="bi bi-currency-dollar">Price:</i> <strong>${price}</strong></p>            
                   <Link to="/cart" className="btn btn-danger"><strong><i className="bi bi-cart-plus"></i> Add to cart</strong></Link>
                 </span>     
               </div>

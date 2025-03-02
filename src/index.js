@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App';
 import Home from './pages/Home';
-import Details from './components/Details';
+import ProductDetails from './pages/ProductDetails';
 import { BrowserRouter, Routes, Route } from "react-router";
 import PageNotFound from './pages/PageNotFound';
 
@@ -15,7 +15,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
          <Route path="/" element={<Home />} />
-         <Route path="/details/:itemId" element={<Details />} />
+         <Route path="/details/:id" element={<ProductDetails />} /> 
          <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
