@@ -31,7 +31,7 @@ const Details = () => {
           <div className="col-md-8">
             <div className="card-body">
               <span className="ratings d-flex">
-                <button type="button" class="btn btn-outline-primary">
+                <button type="button" className="btn btn-outline-primary">
                   Ratings <span className="badge text-bg-primary">{item.rating.rate}</span> from <em>{item.rating.count} ratings</em> 
                 </button>
                 <button type="button" className="btn btn-success"><i className="bi bi-heart"></i></button>
