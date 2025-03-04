@@ -1,11 +1,13 @@
 import "../styles/ProductDetails.css";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router";
+import { FavContext } from "../context/favourites";
 import axios from "axios";
 
 const Details = () => {
   const {id} = useParams();
   const [item, setItem] = useState([])
+  const { favItems, addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
     fetchData();
@@ -21,6 +23,7 @@ const Details = () => {
   }
 
   if(item?.length <= 0) return;
+  console.log("here", item)
   return (
     <Fragment key={id}>
       <div className="card mb-3 cardDetails">
@@ -34,7 +37,7 @@ const Details = () => {
                 <button type="button" className="btn btn-outline-primary">
                   Ratings <span className="badge text-bg-primary">{item.rating.rate}</span> from <em>{item.rating.count} ratings</em> 
                 </button>
-                <button type="button" className="btn btn-success"><i className="bi bi-heart"></i></button>
+                <button type="button" className="btn btn-success" ><i className="bi bi-heart" onClick={addItemToFav(item)}></i></button>
               </span>
               <hr/>
               <div className="row">

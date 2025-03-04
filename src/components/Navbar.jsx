@@ -1,10 +1,13 @@
 import { Link } from "react-router";
 import { useContext } from 'react';
 import { CartContext } from '../context/cart';
+import { FavContext } from "../context/favourites";
 
 const Navbar = () => {
   const { cartItems } = useContext(CartContext);
+  const { favItems } = useContext(FavContext);
   const itemsInCart = cartItems.map(item => item.quantity);
+  const itemsInFav = favItems.length;
   
   return (
     <nav className="navbar navbar-expand-md bg-white border-bottom box-shadow">
@@ -32,6 +35,7 @@ const Navbar = () => {
                 <li><Link className="dropdown-item" to="/">Products</Link></li>
                 <li><Link className="dropdown-item" to="/profile">Profile Page</Link></li>
                 <li><Link className="dropdown-item" to="/cart">Cart<span className="badge text-bg-primary">{itemsInCart.reduce((acc, val) => acc+val, 0)}</span></Link></li>
+                <li><Link className="dropdown-item" to="/fav">Favourites<span className="badge text-bg-primary">{itemsInFav.length}</span></Link></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
               </ul>

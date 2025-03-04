@@ -32,7 +32,7 @@ const Product = () => {
             <div className="card m-2">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
-                <i className="bi bi-heart"></i>
+                <Link to={"/fav"} className="btn btn-outline-success"> <i className="bi bi-heart"></i></Link>
               </div>
               <img src={image} className="card-img-top" alt={image} />
               <div className="card-body">
