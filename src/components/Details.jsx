@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Details = () => {
   const {id} = useParams();
-  const [item, setItem] = useState([])
+  const [item, setItem] = useState(null)
   const { favItems, addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
@@ -22,8 +22,7 @@ const Details = () => {
     }
   }
 
-  if(item?.length <= 0) return;
-  console.log("here", item)
+  if(!item) return;
   return (
     <Fragment key={id}>
       <div className="card mb-3 cardDetails">
@@ -37,7 +36,7 @@ const Details = () => {
                 <button type="button" className="btn btn-outline-primary">
                   Ratings <span className="badge text-bg-primary">{item.rating.rate}</span> from <em>{item.rating.count} ratings</em> 
                 </button>
-                <button type="button" className="btn btn-success" ><i className="bi bi-heart" onClick={addItemToFav(item)}></i></button>
+                <button type="button" className="btn btn-success" onClick={() => addItemToFav(item)}><i className="bi bi-heart"></i></button>
               </span>
               <hr/>
               <div className="row">

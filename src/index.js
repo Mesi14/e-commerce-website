@@ -27,6 +27,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </AppProvider>
-  
+  </AppProvider> 
 );

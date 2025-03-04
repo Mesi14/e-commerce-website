@@ -3,7 +3,9 @@ import { createContext, useState, useEffect } from "react";
 export const FavContext = createContext();
 
 export const FavProvider = ({ children }) => {
-  const [favItems, setFavItems] = useState(localStorage.getItem('favItems') ? JSON.parse(localStorage.getItem('favItems')) : []);
+  // to create a separate function with key param to replace favItems
+  const storage = localStorage.getItem('favItems') ? JSON.parse(localStorage.getItem('favItems')) : []; 
+  const [favItems, setFavItems] = useState(storage);
 
   useEffect(() => {
     localStorage.setItem("favItems", JSON.stringify(favItems));
@@ -17,17 +19,17 @@ export const FavProvider = ({ children }) => {
   }, [])
 
   const addItemToFav = item => {
-    console.log(item)
-    if (!favItems.includes(item)) {
-      setFavItems([...favItems, item]);
+    const isPresent = favItems.some((favItem) => favItem.id === item.id)
+    if (!isPresent) {
+      setFavItems((prevItems) => [...prevItems, item]);
     } else {
-      setFavItems(favItems)
+      removeItemFromFav(item);
     }
   };
 
+
   const removeItemFromFav = (item) => {
-   setFavItems(favItems.filter(favItem => favItem.id !== item.id));
-    
+   setFavItems((prevItems) => prevItems.filter(favItem => favItem.id !== item.id)); 
   };
 
   const emptyFav = () => {
