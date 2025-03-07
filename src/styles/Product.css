@@ -1,0 +1,56 @@
+.prods {
+    background-color: #1c5674;
+    min-height: 40rem;
+    color: #fff;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.favourite {
+    background-color: #f0f0f0;
+    padding: 0.2rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentation {
+    align-items: center;
+}
+
+.prods img {
+    border: 0.7rem ridge #50feff;
+    border-radius: 5%;
+    max-height: 30rem;
+}
+
+.test{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.card {
+    height: 55rem;
+}
+
+.category-section {
+    justify-content: space-between;
+}
+
+.addToCart {
+    position: absolute;
+    bottom: 1rem;
+    width: 92%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-img-top {
+    width: 95%;
+    margin: 1rem auto;
+    height: 25rem;
+}
+
+.card-body {
+    padding-top: 5rem;
+    vertical-align: middle;
+}
