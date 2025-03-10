@@ -3,10 +3,12 @@ import { Fragment, useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router";
 import { FavContext } from "../context/favourites";
 import axios from "axios";
+import { CartContext } from "../context/cart";
 
 const Details = () => {
   const {id} = useParams();
-  const [item, setItem] = useState(null)
+  const [item, setItem] = useState(null);
+  const {cartItems, addItemToCart} = useContext(CartContext)
   const { favItems, addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
@@ -47,9 +49,9 @@ const Details = () => {
                 </div>
                 <div className="col-sm-4 text-center addCartBack">
                   <p className="prod-price">Price: <strong>${item.price}</strong></p>
-                  <button type="button" className="btn btn-danger mt-2">
+                  <Link to="/cart" className="btn btn-danger mt-2" onClick={() => addItemToCart(item)}>
                     <i className="bi bi-cart-plus"></i>Add to cart
-                  </button><br/>
+                  </Link><br/>
                   <Link to="/" className="btn btn-warning mt-2"><strong><i className="bi bi-backspace"></i> Go back</strong></Link>
                 </div>
               </div>
