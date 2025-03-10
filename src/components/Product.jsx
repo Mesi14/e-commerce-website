@@ -3,10 +3,12 @@ import { Link } from 'react-router';
 import { useEffect, useState, Fragment, useContext } from 'react';
 import axios from 'axios';
 import { CartContext } from '../context/cart';
+import { FavContext } from '../context/favourites';
 
 const Product = () => {
   const [products, setProducts] = useState([]);
-  const { cartItems, addItemToCart } = useContext(CartContext);
+  const { addItemToCart } = useContext(CartContext);
+  const { addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
     fetchData();
@@ -32,12 +34,12 @@ const Product = () => {
             <div className="card m-2">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
-                <Link to={"/fav"} className="btn btn-outline-success"> <i className="bi bi-heart"></i></Link>
+                <Link to={"/fav"} className="btn btn-outline-success" onClick={() => addItemToFav({id, title, description, image, category, price})}> <i className="bi bi-heart"></i></Link>
               </div>
               <img src={image} className="card-img-top" alt={image} />
               <div className="card-body">
                 <span className="category-section mb-4 d-flex">
-                  <button type="button" className="btn btn-dark">{category}</button>
+                  <button type="button" className="btn btn-dark disabled">{category}</button>
                   <button type="button" className="btn btn-warning">
                     Ratings: <span className="badge text-bg-secondary">{rating.rate}</span>
                   </button>

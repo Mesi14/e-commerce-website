@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import { BrowserRouter, Routes, Route } from "react-router";
 import PageNotFound from './pages/PageNotFound';
-import { CartProvider } from './context/cart.jsx'
 import AppProvider from './context/app.jsx';
 import Cart from './components/Cart.jsx';
 import Fav from './components/Fav.jsx';

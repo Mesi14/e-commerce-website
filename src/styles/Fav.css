@@ -1,0 +1,8 @@
+.titleCat {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.titleCat h5 {
+  margin-left: 5rem;
+}
