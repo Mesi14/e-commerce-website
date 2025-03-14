@@ -8,7 +8,7 @@ import { FavContext } from '../context/favourites';
 const Product = () => {
   const [products, setProducts] = useState([]);
   const { addItemToCart } = useContext(CartContext);
-  const { addItemToFav } = useContext(FavContext);
+  const { favItems, addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
     fetchData();
@@ -28,13 +28,14 @@ const Product = () => {
       return;
     }
     return products.map(({id, title, description, image, category, price, rating}) => {
-       return (
+      const isFavorite = favItems.some(favItem => favItem.id === id); 
+      return (
         <Fragment key={id}>
           <div className="col-lg-4">
             <div className="card m-2">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
-                <Link to={"/fav"} className="btn btn-outline-success" onClick={() => addItemToFav({id, title, description, image, category, price})}> <i className="bi bi-heart"></i></Link>
+                <Link to={"/fav"} className="btn btn-outline-success" onClick={() => addItemToFav({id, title, description, image, category, price})}> <i className={`bi bi-heart${isFavorite ? '-fill' : ''}`}></i></Link>
               </div>
               <img src={image} className="card-img-top" alt={image} />
               <div className="card-body">

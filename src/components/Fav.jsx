@@ -5,8 +5,7 @@ import { FavContext } from "../context/favourites";
 
 const Fav = () => {
   const { favItems, removeItemFromFav, emptyFav } = useContext(FavContext);
-  
-  console.log(favItems)
+
   return (
     <Fragment key={favItems.length}>
       <div className="text-center">

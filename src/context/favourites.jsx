@@ -27,7 +27,6 @@ export const FavProvider = ({ children }) => {
     }
   };
 
-
   const removeItemFromFav = (item) => {
    setFavItems((prevItems) => prevItems.filter(favItem => favItem.id !== item.id)); 
   };
