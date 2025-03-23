@@ -17,6 +17,7 @@ const combineComponents = (...components) => {
 const AppProvider = combineComponents(
   CartProvider,
   FavProvider,
+  // AuthProvider,
   // ThemeProvider,
 );
 

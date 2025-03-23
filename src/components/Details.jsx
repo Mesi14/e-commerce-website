@@ -8,8 +8,8 @@ import { CartContext } from "../context/cart";
 const Details = () => {
   const {id} = useParams();
   const [item, setItem] = useState(null);
-  const {cartItems, addItemToCart} = useContext(CartContext)
-  const { favItems, addItemToFav } = useContext(FavContext);
+  const {addItemToCart} = useContext(CartContext)
+  const {addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
     fetchData();

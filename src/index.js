@@ -10,8 +10,6 @@ import AppProvider from './context/app.jsx';
 import Cart from './components/Cart.jsx';
 import Fav from './components/Fav.jsx';
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AppProvider>

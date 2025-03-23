@@ -54,7 +54,8 @@ const Cart = () => {
           cartItems.length > 0 ? (
             <div className="cartTotal d-flex text-center m-5">
               <h1 className="totalText">Total: ${calcTotalValue()}</h1>
-              <button className="emptyCart btn btn-danger" onClick={() => {emptyCart()}}>Clear cart <i className="bi bi-trash3-fill"></i></button>
+              <button className="checkout btn btn-success m-2" onClick={() => {}}>Continue to checkout <i className="bi bi-clipboard2-check"></i></button>
+              <button className="emptyCart btn btn-danger m-2" onClick={() => {emptyCart()}}>Clear cart <i className="bi bi-trash3-fill"></i></button>
             </div>
           ) : (
             <h1 className="text-lg font-bold">No items added into the cart</h1>
