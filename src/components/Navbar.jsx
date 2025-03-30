@@ -37,7 +37,7 @@ const Navbar = () => {
                 <li><Link className="dropdown-item" to="/cart">Cart<span className="badge text-bg-primary">{itemsInCart.reduce((acc, val) => acc+val, 0)}</span></Link></li>
                 <li><Link className="dropdown-item" to="/fav">Favourites<span className="badge text-bg-primary">{itemsInFav.length}</span></Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/logout">Logout</Link></li>
+                <li><Link className="dropdown-item" to="/login">Login</Link></li>
               </ul>
             </li>
           </ul>
