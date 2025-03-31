@@ -28,16 +28,15 @@ const Navbar = () => {
           </form>
           <ul className="navbar-nav">
             <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                UserName
+              <Link className="nav-link dropdown-toggle" to="/login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Login
               </Link>
               <ul className="dropdown-menu">
+              <li><Link className="dropdown-item" to="#">UserName</Link></li>
                 <li><Link className="dropdown-item" to="/">Products</Link></li>
-                <li><Link className="dropdown-item" to="/profile">Profile Page</Link></li>
+                <li><hr className="dropdown-divider" /></li>
                 <li><Link className="dropdown-item" to="/cart">Cart<span className="badge text-bg-primary">{itemsInCart.reduce((acc, val) => acc+val, 0)}</span></Link></li>
                 <li><Link className="dropdown-item" to="/fav">Favourites<span className="badge text-bg-primary">{itemsInFav.length}</span></Link></li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><Link className="dropdown-item" to="/login">Login</Link></li>
               </ul>
             </li>
           </ul>

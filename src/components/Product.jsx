@@ -31,7 +31,7 @@ const Product = () => {
       const isFavorite = favItems.some(favItem => favItem.id === id); 
       return (
         <Fragment key={id}>
-          <div className="col-lg-3">
+          <div className="col-lg-3 col-md-6">
             <div className="card m-2">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
@@ -39,19 +39,20 @@ const Product = () => {
               </div>
               <img src={image} className="card-img-top" alt={image} />
               <div className="card-body">
-                <span className="category-section mb-4 d-flex">
+                <span className="category-section mb-3 d-flex">
                   <button type="button" className="btn btn-dark disabled">{category}</button>
                   <button type="button" className="btn btn-warning">
                     Ratings: <span className="badge text-bg-secondary">{rating.rate}</span>
                   </button>
                 </span>
-                <h5 className="card-title mt-5">{(title.length < 50) ? title : (title.substring(0, 50) + "...")}</h5>
-                <p className="card-text mt-3">{(description.length < 100) ? description : (description.substring(0, 100) + "...")}</p>
-                <hr/>
-                <span className="addToCart d-flex">
+                <span className="shortDesc">
+                  <h5 className="card-title mt-1">{(title.length < 50) ? title : (title.substring(0, 50) + "...")}</h5>
+                   <p className="card-text mt-3">{(description.length < 100) ? description : (description.substring(0, 100) + "...")}</p>
+                </span>
+                <div className="addToCart d-flex">
                   <p className="card-text pt-3"><i className="bi bi-currency-dollar">Price:</i> <strong>${price}</strong></p>            
                   <Link to="/cart" className="btn btn-danger" onClick={() => addItemToCart({id, title, description, image, category, price})}><strong><i className="bi bi-cart-plus"></i> Add to cart</strong></Link>
-                </span>     
+                </div>
               </div>
             </div>
           </div>
