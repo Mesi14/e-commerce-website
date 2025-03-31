@@ -35,7 +35,7 @@ const Product = () => {
             <div className="card m-2">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
-                <Link to={"/fav"} className="btn btn-outline-success" onClick={() => addItemToFav({id, title, description, image, category, price})}> <i className={`bi bi-heart${isFavorite ? '-fill' : ''}`}></i></Link>
+                <Link to={"/"} className="btn btn-outline-success" onClick={() => addItemToFav({id, title, description, image, category, price})}> <i className={`bi bi-heart${isFavorite ? '-fill' : ''}`}></i></Link>
               </div>
               <img src={image} className="card-img-top" alt={image} />
               <div className="card-body">
