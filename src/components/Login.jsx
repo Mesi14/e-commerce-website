@@ -4,19 +4,24 @@ import { LoginContext } from "../context/login";
 import { useNavigate } from "react-router";
 
 const Login = () => {
-  const {setAuthenticationStatus} = useContext(LoginContext)
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const { login } = useContext(LoginContext)
+  const [user, setUser] = useState('');
+  const [psw, setPsw] = useState('');
   const navigateTo = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    
-    if (username === 'mesi' && password === 'mesi') {
-      setAuthenticationStatus(true); 
-      navigateTo('/');
+    const storedPsw = localStorage.getItem(user);
+
+    if(storedPsw) {
+      if (storedPsw === psw) {
+        login(user, psw);
+      } else {
+        alert("Wrong password!");
+      }
     } else {
-        console.error('Invalid username or password');
+      alert("User not found! Please register!")
+      navigateTo('/register');
     }
 };
 
@@ -25,11 +30,11 @@ return (
     <h1>Login</h1>
     <form className="loginform" onSubmit={handleLogin}>
       <div data-mdb-input-init className="form-outline mb-4">
-        <input type="text" id="username" className="form-control" onChange={(e) => setUsername(e.target.value)} />
+        <input type="text" id="username" className="form-control" onChange={(e) => setUser(e.target.value)} />
         <label className="form-label" htmlFor="username">Username</label>
       </div>
       <div data-mdb-input-init className="form-outline mb-4">
-        <input type="password" id="pass" className="form-control" onChange={(e) => setPassword(e.target.value)} />
+        <input type="password" id="pass" className="form-control" onChange={(e) => setPsw(e.target.value)} />
         <label className="form-label" htmlFor="pass">Password</label>
       </div>
       <div className="row mb-4">
