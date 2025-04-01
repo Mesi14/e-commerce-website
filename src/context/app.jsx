@@ -1,5 +1,6 @@
 import { CartProvider } from "./cart";
 import { FavProvider } from "./favourites";
+import { LoginProvider } from "./login";
 
 const combineComponents = (...components) => {
   return components.reduce(
@@ -17,7 +18,7 @@ const combineComponents = (...components) => {
 const AppProvider = combineComponents(
   CartProvider,
   FavProvider,
-  // AuthProvider,
+  LoginProvider,
   // ThemeProvider,
 );
 

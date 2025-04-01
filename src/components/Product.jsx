@@ -31,7 +31,7 @@ const Product = () => {
       const isFavorite = favItems.some(favItem => favItem.id === id); 
       return (
         <Fragment key={id}>
-          <div className="col-lg-3 col-md-6">
+          <div className="col-lg-3">
             <div className="card m-2">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>

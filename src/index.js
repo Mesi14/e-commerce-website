@@ -9,6 +9,7 @@ import PageNotFound from './pages/PageNotFound';
 import AppProvider from './context/app.jsx';
 import Cart from './components/Cart.jsx';
 import Fav from './components/Fav.jsx';
+import Login from './components/Login.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,6 +18,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/fav" element={<Fav />} />
           <Route path="/details/:id" element={<ProductDetails />} /> 
