@@ -11,6 +11,7 @@ import Cart from './components/Cart.jsx';
 import Fav from './components/Fav.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
+import Checkout from './components/Checkout.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/fav" element={<Fav />} />
           <Route path="/details/:id" element={<ProductDetails />} /> 
           <Route path="*" element={<PageNotFound />} />

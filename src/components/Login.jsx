@@ -16,6 +16,7 @@ const Login = () => {
     if(storedPsw) {
       if (storedPsw === psw) {
         login(user, psw);
+        navigateTo('/');
       } else {
         alert("Wrong password!");
       }
@@ -40,8 +41,8 @@ return (
       <div className="row mb-4">
         <div className="col d-flex justify-content-center">
           <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="" id="form2Example31" defaultChecked />
-            <label className="form-check-label" htmlFor="form2Example31"> Remember me </label>
+            <input className="form-check-input" type="checkbox" value="" id="checkRemember" defaultChecked />
+            <label className="form-check-label" htmlFor="checkRemember"> Remember me </label>
           </div>
         </div>
         <div className="col">

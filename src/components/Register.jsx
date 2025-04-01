@@ -15,7 +15,8 @@ const Register = () => {
       login(newUsername, newPassword); 
       navigateTo('/'); 
     } else {
-      alert('Both fields are mandatory!');
+      console.log(newUsername, newPassword)
+      alert('All fields are mandatory!');
     }
   };
 
@@ -28,28 +29,27 @@ const Register = () => {
               <div className="card createAccount">
                 <div className="card-body p-5">
                   <h2 className="text-uppercase text-center mb-5">Create an account</h2>
-                  <form className="registrationForm">
+                  <form className="registrationForm" onSubmit={handleRegister}>
                     <div data-mdb-input-init className="form-outline mb-4">
-                      <input type="text" id="form3Example1cg" className="form-control form-control-lg" />
-                      <label className="form-label" for="form3Example1cg">Your Name</label>
+                      <input type="text" id="registrationUserName" className="form-control form-control-lg" value={newUsername} onChange={(e) => setNewUsername(e.target.value)} />
+                      <label className="form-label" htmlFor="registrationUserName">Your Username</label>
                     </div>
                     <div data-mdb-input-init className="form-outline mb-4">
-                      <input type="password" id="form3Example4cg" className="form-control form-control-lg" />
-                      <label className="form-label" for="form3Example4cg">Password</label>
+                      <input type="password" id="registrationPsw" className="form-control form-control-lg" />
+                      <label className="form-label" htmlFor="registrationPsw" onChange={(e) => setNewPassword(e.target.value)}>Password</label>
                     </div>
                     <div data-mdb-input-init className="form-outline mb-4">
-                      <input type="password" id="form3Example4cdg" className="form-control form-control-lg" />
-                      <label className="form-label" for="form3Example4cdg">Repeat your password</label>
+                      <input type="password" id="pswRepeat" className="form-control form-control-lg" onChange={(e) => setNewPassword(e.target.value)} />
+                      <label className="form-label" htmlFor="pswRepeat">Repeat your password</label>
                     </div>
                     <div className="form-check d-flex justify-content-center mb-5">
-                      <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                      <label className="form-check-label" for="form2Example3g">
+                      <input className="form-check-input me-2" type="checkbox" value="" id="agreement" />
+                      <label className="form-check-label" htmlFor="agreement">
                         I agree all statements in <a href="#!" className="text-body"><u>Terms of service</u></a>
                       </label>
                     </div>
                     <div className="d-flex justify-content-center">
-                      <button  type="button" data-mdb-button-init
-                        data-mdb-ripple-init className="btn btn-success btn-block btn-lg text-body">Register</button>
+                      <button  type="submit" data-mdb-button-init data-mdb-ripple-init className="btn btn-success btn-block btn-lg text-body">Register</button>
                     </div>
                     <p className="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
                         className="fw-bold text-body"><u>Login here</u></a></p>
@@ -61,22 +61,6 @@ const Register = () => {
         </div>
       </div>
     </section>
-    // <div>
-    //   <h1>Register</h1>
-    //   <input
-    //     type="text"
-    //     placeholder="New Username"
-    //     value={newUsername}
-    //     onChange={(e) => setNewUsername(e.target.value)}
-    //   />
-    //   <input
-    //     type="password"
-    //     placeholder="New Password"
-    //     value={newPassword}
-    //     onChange={(e) => setNewPassword(e.target.value)}
-    //   />
-    //   <button onClick={handleRegister}>Register</button>
-    // </div>
   );
 };
 

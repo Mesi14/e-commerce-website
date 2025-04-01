@@ -1,5 +1,20 @@
+.horizontalCartTitle {
+   margin-top: 1rem;
+   height: 1.1rem;
+}
+
+.horizontalCart {
+    width: 100%;
+    max-height: 100%;
+}
+
+.twoSided {
+    height: 150px;
+}
+
 .cartTitle {
-    padding: 5rem;
+    width: 80%;
+    margin: 1rem auto;
     justify-content: space-between;
 }
 
@@ -10,11 +25,14 @@
 }
 
 .cartItem {
-    height: 100%;
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 1rem;
+    height: 10rem;
 }
 
 .cartItem img {
-    height: 150px;
+    margin-top:1rem;
+    height: 100px;
     font-size: small;
 }
 
@@ -27,12 +45,12 @@
 
 .fav i {
     height: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .fav button {
     margin: 0;
+    font-size: small;
+    height: 30px;
 }
 
 .buttonsInCart {
@@ -40,16 +58,21 @@
     align-items: center;
 }
 
-.card-body {
-    padding: 2rem;
-}
-
 .cartTotal {
-    padding-right: 5rem;
-    justify-content: flex-end;
+    margin: 3rem auto;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+    width: 70%; 
 }
 
 .totalText {
-    margin-right: 4rem;
+    font-size: 1.5rem;
+    margin-right: 5rem;
     color: rgb(8, 37, 8);
+}
+
+.toCheckout {
+    height: 2.5rem;
 }

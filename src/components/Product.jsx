@@ -32,13 +32,13 @@ const Product = () => {
       return (
         <Fragment key={id}>
           <div className="col-lg-3">
-            <div className="card m-2">
+            <div className="card m-1">
               <div className="favourite d-flex">
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
                 <Link to={"/"} className="btn btn-outline-success" onClick={() => addItemToFav({id, title, description, image, category, price})}> <i className={`bi bi-heart${isFavorite ? '-fill' : ''}`}></i></Link>
               </div>
               <img src={image} className="card-img-top" alt={image} />
-              <div className="card-body">
+              <div className="card-body prod-card">
                 <span className="category-section mb-3 d-flex">
                   <button type="button" className="btn btn-dark disabled">{category}</button>
                   <button type="button" className="btn btn-warning">
