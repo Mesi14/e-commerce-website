@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router";
 import { FavContext } from "../context/favourites";
 import axios from "axios";
 import { CartContext } from "../context/cart";
+import { toast } from "react-toastify";
 
 const Details = () => {
   const {id} = useParams();
@@ -23,6 +24,8 @@ const Details = () => {
       console.error(error);
     }
   }
+
+  const addToCartNotify = () => toast("Added to cart!")
 
   if(!item) return;
   return (
@@ -49,7 +52,10 @@ const Details = () => {
                 </div>
                 <div className="col-sm-4 text-center addCartBack">
                   <p className="prod-price">Price: <strong>${item.price}</strong></p>
-                  <Link to="/cart" className="btn btn-danger mt-2" onClick={() => addItemToCart(item)}>
+                  <Link to="/cart" className="btn btn-danger mt-2" onClick={() => {
+                    addItemToCart(item);
+                    addToCartNotify();
+                    }}>
                     <i className="bi bi-cart-plus"></i>Add to cart
                   </Link><br/>
                   <Link to="/" className="btn btn-warning mt-2"><strong><i className="bi bi-backspace"></i> Go back</strong></Link>

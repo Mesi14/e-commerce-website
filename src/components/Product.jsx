@@ -4,6 +4,7 @@ import { useEffect, useState, Fragment, useContext } from 'react';
 import axios from 'axios';
 import { CartContext } from '../context/cart';
 import { FavContext } from '../context/favourites';
+import { toast } from "react-toastify";
 
 const Product = ({ category = 'all', sortBy = 'default' }) => {
   const [products, setProducts] = useState([]);
@@ -37,6 +38,25 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
     return filtered;
   };
 
+  const addToCartNotify = () => {
+    toast.success("Added to cart!", {
+      autoClose: 500,
+    });
+  }
+
+  const addToFavNotify = () => {
+    toast.warn("Added to favourites!", {
+      autoClose: 500,
+    })
+  }
+
+  const removeFromFavNotify = () => {
+    toast.success("Removed from favourites!", {
+      autoClose: 500,
+      theme: "dark",
+    })
+  }
+
   const makeCard = () => {
     const filteredProducts = filterAndSort();
 
@@ -55,7 +75,10 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
                 <Link to={`/details/${id}`} className="btn btn-outline-success">Details</Link>
                 <button
                   className="btn btn-outline-success"
-                  onClick={() => addItemToFav({ id, title, description, image, category, price })}
+                  onClick={() => {
+                    addItemToFav({ id, title, description, image, category, price });
+                    isFavorite ? removeFromFavNotify() : addToFavNotify();
+                  }}
                 >
                   <i className={`bi bi-heart${isFavorite ? '-fill' : ''}`}></i>
                 </button>
@@ -78,7 +101,10 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
                   <p className="mb-0"><strong>${price}</strong></p>
                   <button
                     className="btn btn-danger"
-                    onClick={() => addItemToCart({ id, title, description, image, category, price })}
+                    onClick={() => {
+                      addItemToCart({ id, title, description, image, category, price });
+                      addToCartNotify();
+                    }}
                   >
                     <i className="bi bi-cart-plus"></i> Add to cart
                   </button>
