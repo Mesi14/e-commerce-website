@@ -3,11 +3,9 @@ import Product from '../components/Product';
 import { useState } from 'react';
 
 const Home = () => {
-  const [filterCat, setFilterCat] = useState('');
+  const [filterCat, setFilterCat] = useState('all');
+  const [sortBy, setSortBy] = useState('')
 
-  const getSelectedCat = () => {
-    return 
-  }
   return (
     <>
       <div className="prods container-fluid d-flex">
@@ -25,8 +23,8 @@ const Home = () => {
               <h2>Products</h2>
           </div>
           <div className="col-md-3">
-            <select className="form-select">
-              <option value="">All</option>
+            <select value={filterCat} onChange={e => setFilterCat(e.target.value) } className="form-select">
+              <option value="all">All</option>
               <option value="electronics">Electronics</option>
               <option value="jewelery">Jewelry</option>
               <option value="men's clothing">Men's clothing</option>
@@ -34,16 +32,16 @@ const Home = () => {
             </select>
           </div>
           <div className="col-md-3">
-            <select className="form-select">
+            <select value={sortBy} onChange={e => setSortBy(e.target.value)} className="form-select">
               <option value="">Sort by ...</option>
-              <option value="Price">Price</option>
-              <option value="Category">Category</option>
+              <option value="price-asc">Lowest to Highest Price</option>
+              <option value="price-desc">Highest to Lowest Price</option>
             </select>
           </div>
         </div>
       </div>
       <div className="row g-2">
-        {<Product />}
+        {<Product category={filterCat} sortBy={sortBy} />}
       </div>
     </>    
     )
