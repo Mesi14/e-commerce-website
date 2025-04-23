@@ -11,7 +11,7 @@ const ProductDetails = () => {
             <p>Mi magnis elementum nec eros at maximus? In iaculis dolor sit consequat per. Eu hac conubia viverra aliquam est. Odio felis elit in finibus cursus nulla torquent. Habitant netus varius; orci rutrum mattis lectus. Sit sagittis mus orci pulvinar, congue eu mauris. Phasellus facilisis vehicula aenean; libero velit platea vehicula. Ex turpis ex inceptos fusce maximus massa mus.</p>
           </div>
           <div className="col-md-6 text-center"> 
-            <img src="Assets/Images/demo_hoodie.png" className="img-fluid" alt="showroom" />                
+            <img src="/Assets/Images/demo_hoodie.png" className="img-fluid" alt="showroom" />                
           </div>
         </div>
       </div>
