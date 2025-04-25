@@ -1,0 +1,83 @@
+.prods {
+    background: radial-gradient(circle at top, #0b959f , #1c5674);
+    min-height: 35rem;
+    color: #fff;
+    margin: 0;
+    flex-wrap: wrap;
+    font-size: smaller;
+    font-weight: 100;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5rem;
+}
+
+.hero-text {
+    line-height: 2rem;
+    width: 60%;
+    padding: 5rem;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+}
+
+.hero-img {
+    border: 0.7rem ridge #50feff;
+    border-radius: 5%;
+    max-height: 20rem;
+    transform: rotate3d(1,3,2,15deg);
+}
+
+.favourite {
+    background-color: #f0f0f0;
+    padding: 0.2rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.presentation {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.test{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.card {
+    height: 37rem;
+    font-size: small;
+}
+
+.category-section {
+    justify-content: space-between;
+}
+
+.addToCart {
+    position: absolute;
+    bottom: 1rem;
+    width: 81%;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    border-top: 1px solid grey;
+}
+
+.card-img-top {
+    width: 55%;
+    margin: 1rem auto;
+    min-height: 10rem;
+}
+
+.prod-card {
+    position: relative;
+    vertical-align: middle;
+    font-size: small;
+    min-height: 22rem;
+}
+
+.card-description {
+    padding: 0;
+    font-size: small;
+}

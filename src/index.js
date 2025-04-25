@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './components/App';
+import Home from './pages/Home';
+import ProductDetails from './pages/ProductDetails';
+import { BrowserRouter, Routes, Route } from "react-router";
+import PageNotFound from './pages/PageNotFound';
+import AppProvider from './context/app.jsx';
+import Cart from './components/Cart.jsx';
+import Fav from './components/Fav.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
+import Checkout from './components/Checkout.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <AppProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/fav" element={<Fav />} />
+          <Route path="/details/:id" element={<ProductDetails />} /> 
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </AppProvider> 
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

@@ -1,0 +1,22 @@
+.login {
+  width: 100%;
+	background: linear-gradient(90deg, #073e68, #6a8fba);
+  color: #fff;
+  text-align: center;
+  height: 90vh;
+  padding: 5rem;
+}
+
+.loginform {
+  width: 30%;
+  height: 85%;
+  margin: 1rem auto;
+  border-radius: 2rem;
+  padding: 5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 0px 24px #155273;
+}
+
+.loginBtn {
+  width: 100%;
+}

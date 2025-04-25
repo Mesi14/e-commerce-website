@@ -1,0 +1,23 @@
+.checkoutFull {
+    width: 80%;
+}
+
+.descriptions {
+
+    justify-content: flex-end;
+}
+
+.checkoutDetailsAll {
+    align-items: center;   
+}
+
+.checkoutDetails {
+    margin-left: 10rem;
+    align-items: center;
+}
+
+.checkoutForm {
+    background-color: rgb(182, 182, 182);
+    border-radius: 1rem;
+    padding: 7rem;
+}
