@@ -5,15 +5,27 @@ import axios from 'axios';
 import { CartContext } from '../context/cart';
 import { FavContext } from '../context/favourites';
 import { toast } from "react-toastify";
-
+const ITEMS_PER_PAGE = 8;
 const Product = ({ category = 'all', sortBy = 'default' }) => {
+  
   const [products, setProducts] = useState([]);
+  const [visibleProducts, setVisibleProducts] = useState([]);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
   const { addItemToCart } = useContext(CartContext);
   const { favItems, addItemToFav } = useContext(FavContext);
 
   useEffect(() => {
     fetchData();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (products.length > 0) {
+      loadMoreProducts();
+    }
+  }, [products, page]);
 
   const fetchData = async () => {
     try {
@@ -21,6 +33,20 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
       setProducts(response.data);
     } catch (error) {
       console.error('Fetching Error', error);
+    }
+  };
+
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.scrollHeight;
+
+    if (!loading && scrollTop + windowHeight + 100 >= documentHeight) {
+      setLoading(true);
+      setTimeout(() => {
+        setPage(prev => prev + 1);
+        setLoading(false);
+      }, 500);
     }
   };
 
@@ -36,6 +62,12 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
     }
 
     return filtered;
+  };
+
+  const loadMoreProducts = () => {
+    const filtered = filterAndSort();
+    const nextProducts = filtered.slice(0, page * ITEMS_PER_PAGE);
+    setVisibleProducts(nextProducts);
   };
 
   const addToCartNotify = () => {
@@ -58,13 +90,11 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
   }
 
   const makeCard = () => {
-    const filteredProducts = filterAndSort();
-
-    if (filteredProducts.length === 0) {
+    if (visibleProducts.length === 0) {
       return <p className="text-center mt-3">No products</p>;
     }
 
-    return filteredProducts.map(({ id, title, description, image, category, price, rating }) => {
+    return visibleProducts.map(({ id, title, description, image, category, price, rating }) => {
       const isFavorite = favItems.some(favItem => favItem.id === id);
 
       return (
@@ -117,7 +147,19 @@ const Product = ({ category = 'all', sortBy = 'default' }) => {
     });
   };
 
-  return <div className="row">{makeCard()}</div>;
+  return (
+    <>
+      <div className="row">{makeCard()}</div>
+      {loading && (
+        <div className="text-center mt-4">
+          <button className="btn btn-primary" disabled>
+            <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading More...
+          </button>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default Product;
